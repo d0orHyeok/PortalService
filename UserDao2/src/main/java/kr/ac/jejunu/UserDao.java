@@ -10,7 +10,10 @@ public class UserDao {
     }
 
     public User findById(Integer id) throws ClassNotFoundException, SQLException {
+        // 변하는 것 stretagy
+        // 변하는 것은 interface로 선언하여 뽑아내기
         Connection connection = connectionMaker.getConnection();
+        // 변하지 않는 것 context
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "select * from  userinfo where id = ?"
         );

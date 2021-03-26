@@ -8,3 +8,5 @@ kr/ac/jejunu/ConnectionMaker.java
  kr.ac.jejunu.ConnectionMaker
 kr/ac/jejunu/UserDao.java
  kr.ac.jejunu.UserDao
+kr/ac/jejunu/DaoFactory.java
+ kr.ac.jejunu.DaoFactory
