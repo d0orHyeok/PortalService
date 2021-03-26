@@ -1,8 +1,0 @@
-**/build/
-**/.idea
-**/.gradle
-**/src/main/webapp/WEB-INF/views/spring/resources/
-gradlew
-gradlew.bat
-settings.gradle
-usermanagement/gradle
