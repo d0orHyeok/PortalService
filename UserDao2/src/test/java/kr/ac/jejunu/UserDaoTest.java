@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.sql.SQLException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 
@@ -40,8 +41,6 @@ public class UserDaoTest {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
-//        DaoFactory daoFactory = new DaoFactory();
-//        UserDao userDao = daoFactory.getUserDao();
         userDao.insert(user);
 
         User insertedUser = userDao.findById(user.getId());
@@ -50,6 +49,44 @@ public class UserDaoTest {
         assertThat(insertedUser.getId(), is(user.getId()));
         assertThat(insertedUser.getName(), is(user.getName()));
         assertThat(insertedUser.getPassword(), is(user.getPassword()));
+    }
+
+    @Test
+    public void update() throws SQLException {
+        String name = "kjh";
+        String password = "1111";
+
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        userDao.insert(user);
+
+        user.setName("장혁");
+        user.setPassword("1234");
+
+        userDao.update(user);
+
+        User updateduser = userDao.findById(user.getId());
+
+        assertThat(updateduser.getId(), is(user.getId()));
+        assertThat(updateduser.getName(), is(user.getName()));
+        assertThat(updateduser.getPassword(), is(user.getPassword()));
+    }
+    @Test
+    public void delete() throws SQLException {
+        String name = "kjh";
+        String password = "1111";
+
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        userDao.insert(user);
+
+        userDao.delete(user.getId());
+
+        User deletedUser = userDao.findById(user.getId());
+
+        assertThat(deletedUser, nullValue());
     }
 //
 //    @Test
