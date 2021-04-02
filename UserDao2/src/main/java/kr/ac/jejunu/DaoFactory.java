@@ -1,13 +1,18 @@
 package kr.ac.jejunu;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 // dependency injection
 // spring framework 기능
+@Configuration
 public class DaoFactory {
-    public UserDao getUserDao() {
-        return new UserDao(getConnectionMaker());
+    @Bean
+    public UserDao userDao() {
+        return new UserDao(connectionMaker());
     }
 
-    private JejuConnectionMaker getConnectionMaker() {
+    private JejuConnectionMaker connectionMaker() {
         return new JejuConnectionMaker();
     }
 }
