@@ -10,7 +10,7 @@ public class UserDao {
         this.dataSource = dataSource;
     }
 
-    public User findById(Integer id) throws ClassNotFoundException, SQLException {
+    public User findById(Integer id) throws SQLException {
         // 변하는 것 stretagy
         // 변하는 것은 interface로 선언하여 뽑아내기
         Connection connection = dataSource.getConnection();
@@ -31,7 +31,7 @@ public class UserDao {
         return user;
     }
 
-    public void insert(User user) throws ClassNotFoundException, SQLException {
+    public void insert(User user) throws SQLException {
         Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(
                 "insert into userinfo (name, password) values (? , ?)"
