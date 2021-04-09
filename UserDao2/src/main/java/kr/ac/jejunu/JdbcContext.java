@@ -105,11 +105,23 @@ public class JdbcContext {
         });
     }
 
-    void insert(User user, String sql, Object[] params) throws SQLException {
+    void insert(User user, String sql, Object[] params, UserDao userDao) throws SQLException {
         jdbcContextForInsert(user, connection -> {
             PreparedStatement preparedStatement = connection.prepareStatement(
                     sql
                     , Statement.RETURN_GENERATED_KEYS
+            );
+            for (int i = 0; i < params.length; i++){
+                preparedStatement.setObject(i+1, params[i]);
+            }
+            return preparedStatement;
+        });
+    }
+
+    User findById(String sql, Object[] params) throws SQLException {
+        return jdbcContextForFindById(connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    sql
             );
             for (int i = 0; i < params.length; i++){
                 preparedStatement.setObject(i+1, params[i]);

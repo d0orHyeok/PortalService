@@ -8,17 +8,9 @@ kr/ac/jejunu/JejuConnectionMaker.java
  kr.ac.jejunu.JejuConnectionMaker
 kr/ac/jejunu/StatementStrategy.java
  kr.ac.jejunu.StatementStrategy
-kr/ac/jejunu/FindByIdStatementStrategy.java
- kr.ac.jejunu.FindByIdStatementStrategy
-kr/ac/jejunu/UpdateStatementStrategy.java
- kr.ac.jejunu.UpdateStatementStrategy
-kr/ac/jejunu/DeleteStatementStrategy.java
- kr.ac.jejunu.DeleteStatementStrategy
-kr/ac/jejunu/InsertStatementStrategy.java
- kr.ac.jejunu.InsertStatementStrategy
-kr/ac/jejunu/JdbcContext.java
- kr.ac.jejunu.JdbcContext
 kr/ac/jejunu/UserDao.java
  kr.ac.jejunu.UserDao
+kr/ac/jejunu/JdbcContext.java
+ kr.ac.jejunu.JdbcContext
 kr/ac/jejunu/DaoFactory.java
  kr.ac.jejunu.DaoFactory
