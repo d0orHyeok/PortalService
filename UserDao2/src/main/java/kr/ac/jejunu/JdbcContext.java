@@ -20,9 +20,7 @@ public class JdbcContext {
         User user = null;
         try {
             connection = dataSource.getConnection();
-
             preparedStatement = statementStrategy.makeStatement(connection);
-
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 user = new User();
@@ -55,9 +53,7 @@ public class JdbcContext {
         PreparedStatement preparedStatement = null;
         try {
             connection = dataSource.getConnection();
-
             preparedStatement = statementStrategy.makeStatement(connection);
-
             preparedStatement.executeUpdate();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -83,9 +79,7 @@ public class JdbcContext {
         PreparedStatement preparedStatement = null;
         try {
             connection = dataSource.getConnection();
-
             preparedStatement = statementStrategy.makeStatement(connection);
-
             preparedStatement.executeUpdate();
         } finally {
             try {
